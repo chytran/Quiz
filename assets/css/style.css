@@ -1,1 +1,16 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.main__container {
+  background-image: url(/assets/img/erik-cid-lPEDGBua4-k-unsplash.jpg);
+  height: 100vh;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-repeat: no-repeat;
+}
+/*# sourceMappingURL=style.css.map */
