@@ -29,5 +29,24 @@
 
 .quiz__header {
     padding: 2rem;
-    
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+button {
+    background-color: #8e44ad;
+    width: 100%;
+    display: block;
+    padding: 1rem;
+    color: #FFF;
+    font-size: 1.3rem;
+    cursor: pointer;
 }
