@@ -3,6 +3,7 @@ const submit = document.getElementById("submit");
 const results = document.getElementById("results");
 
 let currentQuestion = 0;
+let score = 0;
 
 const questionEl = document.getElementById("question");
 const a_text = document.getElementById('a_text');
@@ -11,6 +12,9 @@ const c_text = document.getElementById('c_text');
 const d_text = document.getElementById('d_text');
 const submitButton = document.getElementById("submit");
 
+
+
+// Building the quiz
 const buildQuiz = () => {
     questionEl.innerHTML = questions[currentQuestion].question;
 
@@ -60,14 +64,35 @@ const questions = [
 // Display quiz
 buildQuiz();
 
+// Selected the answewr
+function getSelected(){
+    const answerEls = document.querySelectorAll(".answer");
+
+    let answer = undefined;
+
+    answerEls.forEach((answerEl) => {
+       if (answerEl.checked) {
+           answer = answerEl.id;
+       }
+       return answer;
+    });
+}
+
 submitButton.addEventListener("click", () => {
-    currentQuestion++;
+    // Check to see the answer
+    const answer = getSelected();
 
-    if (currentQuestions === 2) {
+    console.log(answer);
 
+    
+    if(answer) {
+        currentQuestion++;
+        if(currentQuestion < questions.length){
+            buildQuiz();  
+        } else alert("Quiz completed");
     }
 
-    buildQuiz();
+    
 });
 
 // On submit
