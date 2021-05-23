@@ -11,3 +11,23 @@
     object-fit: cover;
     background-repeat: no-repeat;
 }
+
+.quiz__container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container__liner {
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);
+    width: 400px;
+}
+
+.quiz__header {
+    padding: 2rem;
+    
+}
