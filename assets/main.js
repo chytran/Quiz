@@ -11,11 +11,14 @@ const b_text = document.getElementById('b_text');
 const c_text = document.getElementById('c_text');
 const d_text = document.getElementById('d_text');
 const submitButton = document.getElementById("submit");
-
+const answerEls = document.querySelectorAll(".answer");
+const quizHolder = document.getElementById("container-liner");
 
 
 // Building the quiz
 const buildQuiz = () => {
+    deselectAnswer();
+
     questionEl.innerHTML = questions[currentQuestion].question;
 
     a_text.innerHTML = questions[currentQuestion].answers.a;
@@ -64,9 +67,15 @@ const questions = [
 // Display quiz
 buildQuiz();
 
+// Delect answers when on to the next question
+function deselectAnswer() {
+    answerEls.forEach((answerEl) => {
+        answerEl.checked = false;
+    })
+}
+
 // Selected the answewr
 function getSelected(){
-    const answerEls = document.querySelectorAll(".answer");
 
     let answer = undefined;
 
@@ -74,8 +83,8 @@ function getSelected(){
        if (answerEl.checked) {
            answer = answerEl.id;
        }
-       return answer;
     });
+    return answer;
 }
 
 submitButton.addEventListener("click", () => {
@@ -86,10 +95,19 @@ submitButton.addEventListener("click", () => {
 
     
     if(answer) {
+        if(answer === questions[currentQuestion].correctAnswer){
+            score++;
+        }
+
         currentQuestion++;
         if(currentQuestion < questions.length){
             buildQuiz();  
-        } else alert("Quiz completed");
+        } else {
+            quizHolder.innerHTML = `
+                <h2>You score correctly ${score}/${questions.length} questions</h2>
+                <button><a class="result__button" href="/assets/index.html">Try again</a></button>
+            `;
+        }
     }
 
     
@@ -97,3 +115,4 @@ submitButton.addEventListener("click", () => {
 
 // On submit
 submit.addEventListener("click", showResults);
+

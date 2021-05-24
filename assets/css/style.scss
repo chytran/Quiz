@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+h2 {
+    padding: 1rem;
+    margin-left: 1rem;
+}
+
 .main__container {
     background-image: url(/assets/img/erik-cid-lPEDGBua4-k-unsplash.jpg);
     height: 100vh;
@@ -49,4 +54,17 @@ button {
     color: #FFF;
     font-size: 1.3rem;
     cursor: pointer;
+}
+
+// Post Test
+.result__button {
+    text-decoration: none;
+    list-style-type: none;
+    color: #FFF;
+    font-size: 1.3rem;
+    transition: 0.6s;
+}
+
+.result__button:hover {
+    opacity: 0.6;
 }
